@@ -2,127 +2,57 @@
   "questions": [
     {
       "question": "Вопрос 1",
+      "correctAnswer": 0,
       "answers": [
-        {
-          "title": "Ответ 1",
-          "isTrue": true
-        },
-        {
-          "title": "Ответ 2",
-          "isTrue": false
-        },
-        {
-          "title": "Ответ 3",
-          "isTrue": false
-        },
-        {
-          "title": "Ответ 4",
-          "isTrue": false
-        },
-        {
-          "title": "Ответ 5",
-          "isTrue": false
-        }
+        "Ответ 11",
+        "Ответ 12",
+        "Ответ 13",
+        "Ответ 14",
+        "Ответ 15"
       ]
     },
     {
       "question": "Вопрос 2",
+      "correctAnswer": 1,
       "answers": [
-        {
-          "title": "Ответ 1",
-          "isTrue": true
-        },
-        {
-          "title": "Ответ 2",
-          "isTrue": false
-        },
-        {
-          "title": "Ответ 3",
-          "isTrue": false
-        },
-        {
-          "title": "Ответ 4",
-          "isTrue": false
-        },
-        {
-          "title": "Ответ 5",
-          "isTrue": false
-        }
+        "Ответ 21",
+        "Ответ 22",
+        "Ответ 23",
+        "Ответ 24",
+        "Ответ 25"
       ]
     },
     {
       "question": "Вопрос 3",
+      "correctAnswer": 2,
       "answers": [
-        {
-          "title": "Ответ 1",
-          "isTrue": true
-        },
-        {
-          "title": "Ответ 2",
-          "isTrue": false
-        },
-        {
-          "title": "Ответ 3",
-          "isTrue": false
-        },
-        {
-          "title": "Ответ 4",
-          "isTrue": false
-        },
-        {
-          "title": "Ответ 5",
-          "isTrue": false
-        }
+        "Ответ 31",
+        "Ответ 32",
+        "Ответ 33",
+        "Ответ 34",
+        "Ответ 35"
       ]
     },
     {
       "question": "Вопрос 4",
+      "correctAnswer": 3,
       "answers": [
-        {
-          "title": "Ответ 1",
-          "isTrue": true
-        },
-        {
-          "title": "Ответ 2",
-          "isTrue": false
-        },
-        {
-          "title": "Ответ 3",
-          "isTrue": false
-        },
-        {
-          "title": "Ответ 4",
-          "isTrue": false
-        },
-        {
-          "title": "Ответ 5",
-          "isTrue": false
-        }
+        "Ответ 41",
+        "Ответ 42",
+        "Ответ 43",
+        "Ответ 44",
+        "Ответ 45"
       ]
     },
     {
       "question": "Вопрос 5",
+      "correctAnswer": 4,
       "answers": [
-        {
-          "title": "Ответ 1",
-          "isTrue": true
-        },
-        {
-          "title": "Ответ 2",
-          "isTrue": false
-        },
-        {
-          "title": "Ответ 3",
-          "isTrue": false
-        },
-        {
-          "title": "Ответ 4",
-          "isTrue": false
-        },
-        {
-          "title": "Ответ 5",
-          "isTrue": false
-        }
+        "Ответ 51",
+        "Ответ 52",
+        "Ответ 53",
+        "Ответ 54",
+        "Ответ 55"
       ]
     }
 

@@ -8,10 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
 import androidx.appcompat.view.ContextThemeWrapper
+import androidx.core.view.isVisible
 import com.rsschool.quiz.R
 import com.rsschool.quiz.databinding.FragmentMyQizBinding
 import com.rsschool.quiz.interfaces.mainActivityInterface
-
+import com.rsschool.quiz.models.ThemeGenerator
 
 
 class MyQizFragment : Fragment() {
@@ -63,7 +64,15 @@ class MyQizFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 
-        val contextThemeWrapper = ContextThemeWrapper(activity, R.style.Theme_Quiz_First)
+        //val contextThemeWrapper = ContextThemeWrapper(activity, R.style.Theme_Quiz_Second)
+
+        currenPage = arguments?.getInt(CURRENT_PAGE_KEY)
+        totalPages = arguments?.getInt(TOTAL_PAGES_KEY)
+        question = arguments?.getString(QUESTION_KEY)
+        answers = arguments?.getSerializable(ANSWERS_ARRAY_KEY) as Array<String>
+        indexOfSelectedAnswer = arguments?.getString(INDEX_OF_SELECTED_ANSWER_KEY)
+
+        val contextThemeWrapper = ContextThemeWrapper(activity, ThemeGenerator().getThemeById(currenPage!!))
         val localInflater = inflater.cloneInContext(contextThemeWrapper)
 
         val typedValue = TypedValue()
@@ -82,11 +91,11 @@ class MyQizFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        currenPage = arguments?.getInt(CURRENT_PAGE_KEY)
-        totalPages = arguments?.getInt(TOTAL_PAGES_KEY)
-        question = arguments?.getString(QUESTION_KEY)
-        answers = arguments?.getSerializable(ANSWERS_ARRAY_KEY) as Array<String>
-        indexOfSelectedAnswer = arguments?.getString(INDEX_OF_SELECTED_ANSWER_KEY)
+//        currenPage = arguments?.getInt(CURRENT_PAGE_KEY)
+//        totalPages = arguments?.getInt(TOTAL_PAGES_KEY)
+//        question = arguments?.getString(QUESTION_KEY)
+//        answers = arguments?.getSerializable(ANSWERS_ARRAY_KEY) as Array<String>
+//        indexOfSelectedAnswer = arguments?.getString(INDEX_OF_SELECTED_ANSWER_KEY)
 
         binding.toolbar.title = "Question - ${currenPage?.plus(1)}"
         binding.question.text = question
@@ -133,11 +142,21 @@ class MyQizFragment : Fragment() {
             mainActivityListener?.previousQuizFragment()
         }
 
+        binding.toolbar.setNavigationOnClickListener {
+            mainActivityListener?.previousQuizFragment()
+        }
+
     }
 
     private fun tunePreviousButton() {
 
         binding.previousButton.isEnabled = currenPage!! > 0
+
+        if ( currenPage!! > 0 ) {
+            binding.toolbar.setNavigationIcon( R.drawable.ic_baseline_chevron_left_24 )
+        } else {
+            binding.toolbar.navigationIcon = null
+        }
 
     }
 

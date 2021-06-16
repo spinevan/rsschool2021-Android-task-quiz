@@ -32,22 +32,13 @@ class MainActivity : AppCompatActivity(), mainActivityInterface {
 
     override fun openQuizFragment() {
 
-        val asnwers: ArrayList<String> = arrayListOf()
-
-        for ( item in  quizRepository.quiz.questions[currenPage].answers ) {
-            asnwers.add(item.title)
-        }
-
-
         val firstFragment: Fragment = MyQizFragment.newInstance(
             currenPage,
             totalPages,
             quizRepository.quiz.questions[currenPage].question,
-            //quizRepository.quiz.questions[currenPage].answers.flatMap { it.title },
-            asnwers.toTypedArray(),
+            quizRepository.quiz.questions[currenPage].answers,
             usersAnswers.getOrElse(currenPage) { "" }
         )
-
 
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.container, firstFragment).commit()
