@@ -7,6 +7,7 @@ import androidx.appcompat.widget.ThemeUtils
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.rsschool.quiz.fragments.MyQizFragment
+import com.rsschool.quiz.fragments.ResultsFragment
 import com.rsschool.quiz.interfaces.mainActivityInterface
 import com.rsschool.quiz.models.Quiz
 import com.rsschool.quiz.repositoryes.QuizRepository
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity(), mainActivityInterface {
         totalPages = quizRepository.quiz.questions.size
 
         openQuizFragment()
+
     }
 
     override fun openQuizFragment() {
@@ -53,7 +55,12 @@ class MainActivity : AppCompatActivity(), mainActivityInterface {
     override fun nextQuizFragment() {
 
         if ( currenPage == totalPages - 1  ) {
-          println("Open results fragment") //TODO
+
+          val resString = quizRepository.getResults( usersAnswers )
+
+          val resultsFragment: Fragment = ResultsFragment.newInstance( resString )
+          val transaction = supportFragmentManager.beginTransaction()
+          transaction.replace(R.id.container, resultsFragment).commit()
         } else {
             currenPage++
             openQuizFragment()
@@ -70,5 +77,15 @@ class MainActivity : AppCompatActivity(), mainActivityInterface {
 
         usersAnswers[pageIndex] = answerIndex.toString()
         println(usersAnswers) //TODO
+    }
+
+    override fun closeApp() {
+        finish()
+    }
+
+    override fun repeatQuiz() {
+        currenPage = 0
+        usersAnswers = mutableMapOf()
+        openQuizFragment()
     }
 }

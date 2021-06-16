@@ -22,6 +22,19 @@ class QuizRepository(val resources: Resources) : IQuizRepository {
 
     }
 
+    override fun getResults(answers: MutableMap<Int, String>): String {
+
+        var trueAnswersCount = 0
+
+        for ( item in answers ) {
+            if ( quiz.questions[item.key].correctAnswer == item.value.toInt() )
+                trueAnswersCount++
+        }
+
+        return "$trueAnswersCount / ${quiz.questions.size}"
+
+    }
+
     private fun loadFromJson(): String {
         val text = resources.openRawResource(R.raw.quiz1)
             .bufferedReader().use { it.readText() }
@@ -29,4 +42,6 @@ class QuizRepository(val resources: Resources) : IQuizRepository {
         return text
 
     }
+
+
 }

@@ -8,10 +8,10 @@ class ThemeGenerator: IThemeGenerator {
 
         val arrayThemes = arrayListOf(
             R.style.Theme_Quiz_First,
-            R.style.Theme_Quiz_Second,
             R.style.Theme_Quiz_Third,
             R.style.Theme_Quiz_Fourth,
-            R.style.Theme_Quiz_Fifth
+            R.style.Theme_Quiz_Fifth,
+            R.style.Theme_Quiz_Second
         )
 
         val maxIndex = arrayThemes.size - 1

@@ -3,4 +3,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="next">Next</string>
     <string name="submit">Submit</string>
+    <string name="share">Share</string>
+    <string name="your_results">Your results:</string>
+    <string name="quit">Quit</string>
+    <string name="repeat">Repeat</string>
 </resources>

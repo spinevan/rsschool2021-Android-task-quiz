@@ -51,7 +51,11 @@ class MyQizFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-
+            currenPage = it.getInt(CURRENT_PAGE_KEY)
+            totalPages = it.getInt(TOTAL_PAGES_KEY)
+            question = it.getString(QUESTION_KEY)
+            answers = it.getSerializable(ANSWERS_ARRAY_KEY) as Array<String>
+            indexOfSelectedAnswer = it.getString(INDEX_OF_SELECTED_ANSWER_KEY)
         }
 
         mainActivityListener = context as mainActivityInterface
@@ -66,11 +70,11 @@ class MyQizFragment : Fragment() {
 
         //val contextThemeWrapper = ContextThemeWrapper(activity, R.style.Theme_Quiz_Second)
 
-        currenPage = arguments?.getInt(CURRENT_PAGE_KEY)
-        totalPages = arguments?.getInt(TOTAL_PAGES_KEY)
-        question = arguments?.getString(QUESTION_KEY)
-        answers = arguments?.getSerializable(ANSWERS_ARRAY_KEY) as Array<String>
-        indexOfSelectedAnswer = arguments?.getString(INDEX_OF_SELECTED_ANSWER_KEY)
+//        currenPage = arguments?.getInt(CURRENT_PAGE_KEY)
+//        totalPages = arguments?.getInt(TOTAL_PAGES_KEY)
+//        question = arguments?.getString(QUESTION_KEY)
+//        answers = arguments?.getSerializable(ANSWERS_ARRAY_KEY) as Array<String>
+//        indexOfSelectedAnswer = arguments?.getString(INDEX_OF_SELECTED_ANSWER_KEY)
 
         val contextThemeWrapper = ContextThemeWrapper(activity, ThemeGenerator().getThemeById(currenPage!!))
         val localInflater = inflater.cloneInContext(contextThemeWrapper)

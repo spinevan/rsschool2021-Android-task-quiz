@@ -8,4 +8,6 @@ interface IQuizRepository {
 
     fun loadQuiz()
 
+    fun getResults(answers: MutableMap<Int, String>): String
+
 }

@@ -7,5 +7,7 @@ interface mainActivityInterface {
     fun nextQuizFragment()
     fun previousQuizFragment()
     fun saveUserAnswer(pageIndex: Int, answerIndex: Int)
+    fun closeApp()
+    fun repeatQuiz()
 
 }
