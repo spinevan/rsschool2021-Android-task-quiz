@@ -10,4 +10,6 @@ interface IQuizRepository {
 
     fun getResults(answers: MutableMap<Int, String>): String
 
+    fun getSharedText(answers: MutableMap<Int, String>): String
+
 }

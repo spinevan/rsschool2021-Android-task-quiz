@@ -4,7 +4,9 @@
     <string name="next">Next</string>
     <string name="submit">Submit</string>
     <string name="share">Share</string>
-    <string name="your_results">Your results:</string>
+    <string name="your_result">Your result:</string>
     <string name="quit">Quit</string>
     <string name="repeat">Repeat</string>
+    <string name="your_answer">Your answer</string>
+    <string name="send_to">Send to</string>
 </resources>

@@ -35,10 +35,24 @@ class QuizRepository(val resources: Resources) : IQuizRepository {
 
     }
 
+    override fun getSharedText(answers: MutableMap<Int, String>): String {
+
+        val resString = getResults( answers )
+        var res = "${resources.getString( R.string.your_result )} $resString" + System.lineSeparator()
+
+        for ( item in answers ) {
+            res += "${item.key+1}) ${quiz.questions[item.key].question}" + System.lineSeparator()
+            res += "${resources.getString( R.string.your_answer )}: ${quiz.questions[item.key].answers[item.value.toInt()]}" + System.lineSeparator()
+        }
+
+        return res
+
+    }
+
     private fun loadFromJson(): String {
+
         val text = resources.openRawResource(R.raw.quiz1)
             .bufferedReader().use { it.readText() }
-
         return text
 
     }

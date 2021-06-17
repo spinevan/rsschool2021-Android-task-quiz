@@ -1,58 +1,58 @@
 {
   "questions": [
     {
-      "question": "Вопрос 1",
+      "question": "Capital of Russia:",
       "correctAnswer": 0,
       "answers": [
-        "Ответ 11",
-        "Ответ 12",
-        "Ответ 13",
-        "Ответ 14",
-        "Ответ 15"
+        "Moscow",
+        "St. Petersburg",
+        "Sochi",
+        "Anapa",
+        "Kirov"
       ]
     },
     {
-      "question": "Вопрос 2",
+      "question": "Capital of USA:",
       "correctAnswer": 1,
       "answers": [
-        "Ответ 21",
-        "Ответ 22",
-        "Ответ 23",
-        "Ответ 24",
-        "Ответ 25"
+        "New York",
+        "Washington",
+        "Denver",
+        "San Francisco",
+        "Las Vegas"
       ]
     },
     {
-      "question": "Вопрос 3",
+      "question": "Capital of Italy:",
       "correctAnswer": 2,
       "answers": [
-        "Ответ 31",
-        "Ответ 32",
-        "Ответ 33",
-        "Ответ 34",
-        "Ответ 35"
+        "Latina",
+        "Napoli",
+        "Rome",
+        "Catania",
+        "Palermo"
       ]
     },
     {
-      "question": "Вопрос 4",
+      "question": "Capital of France:",
       "correctAnswer": 3,
       "answers": [
-        "Ответ 41",
-        "Ответ 42",
-        "Ответ 43",
-        "Ответ 44",
-        "Ответ 45"
+        "Marseille",
+        "Montpellier",
+        "Lyon",
+        "Paris",
+        "Nantes"
       ]
     },
     {
-      "question": "Вопрос 5",
+      "question": "Capital of Germany:",
       "correctAnswer": 4,
       "answers": [
-        "Ответ 51",
-        "Ответ 52",
-        "Ответ 53",
-        "Ответ 54",
-        "Ответ 55"
+        "München",
+        "Stuttgart",
+        "Frankfurt",
+        "Köln",
+        "Berlin"
       ]
     }
 

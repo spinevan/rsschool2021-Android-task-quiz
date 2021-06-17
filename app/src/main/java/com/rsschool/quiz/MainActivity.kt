@@ -1,15 +1,11 @@
 package com.rsschool.quiz
 
 import android.os.Bundle
-import android.util.TypedValue
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.ThemeUtils
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.rsschool.quiz.fragments.MyQizFragment
 import com.rsschool.quiz.fragments.ResultsFragment
 import com.rsschool.quiz.interfaces.mainActivityInterface
-import com.rsschool.quiz.models.Quiz
 import com.rsschool.quiz.repositoryes.QuizRepository
 
 class MainActivity : AppCompatActivity(), mainActivityInterface {
@@ -20,6 +16,7 @@ class MainActivity : AppCompatActivity(), mainActivityInterface {
     private var usersAnswers: MutableMap<Int, String> = mutableMapOf()
     private var currenPage: Int = 0
     private var totalPages: Int = 0
+    private var isTestEnded: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +43,15 @@ class MainActivity : AppCompatActivity(), mainActivityInterface {
         transaction.replace(R.id.container, firstFragment).commit()
     }
 
+    override fun onBackPressed() {
+
+        if ( isTestEnded || currenPage == 0 ) {
+            super.onBackPressed()
+        } else {
+            previousQuizFragment()
+        }
+
+    }
 
 
     override fun setStatusBarColor(color: Int) {
@@ -56,9 +62,12 @@ class MainActivity : AppCompatActivity(), mainActivityInterface {
 
         if ( currenPage == totalPages - 1  ) {
 
-          val resString = quizRepository.getResults( usersAnswers )
+           isTestEnded = true
 
-          val resultsFragment: Fragment = ResultsFragment.newInstance( resString )
+          val resString = quizRepository.getResults( usersAnswers )
+          val sharedText = quizRepository.getSharedText( usersAnswers )
+
+          val resultsFragment: Fragment = ResultsFragment.newInstance( resString, sharedText )
           val transaction = supportFragmentManager.beginTransaction()
           transaction.replace(R.id.container, resultsFragment).commit()
         } else {
@@ -76,7 +85,7 @@ class MainActivity : AppCompatActivity(), mainActivityInterface {
     override fun saveUserAnswer(pageIndex: Int, answerIndex: Int) {
 
         usersAnswers[pageIndex] = answerIndex.toString()
-        println(usersAnswers) //TODO
+
     }
 
     override fun closeApp() {

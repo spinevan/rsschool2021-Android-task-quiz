@@ -67,15 +67,6 @@ class MyQizFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-
-        //val contextThemeWrapper = ContextThemeWrapper(activity, R.style.Theme_Quiz_Second)
-
-//        currenPage = arguments?.getInt(CURRENT_PAGE_KEY)
-//        totalPages = arguments?.getInt(TOTAL_PAGES_KEY)
-//        question = arguments?.getString(QUESTION_KEY)
-//        answers = arguments?.getSerializable(ANSWERS_ARRAY_KEY) as Array<String>
-//        indexOfSelectedAnswer = arguments?.getString(INDEX_OF_SELECTED_ANSWER_KEY)
-
         val contextThemeWrapper = ContextThemeWrapper(activity, ThemeGenerator().getThemeById(currenPage!!))
         val localInflater = inflater.cloneInContext(contextThemeWrapper)
 
@@ -83,8 +74,6 @@ class MyQizFragment : Fragment() {
         if (contextThemeWrapper.theme.resolveAttribute(R.attr.colorPrimaryVariant, typedValue, true) ) {
             mainActivityListener?.setStatusBarColor(typedValue.data)
         }
-
-        //return localInflater.inflate(R.layout.fragment_my_qiz, container, false)
 
         _binding = FragmentMyQizBinding.inflate(localInflater, container, false)
         val view = binding.root
@@ -94,12 +83,6 @@ class MyQizFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-//        currenPage = arguments?.getInt(CURRENT_PAGE_KEY)
-//        totalPages = arguments?.getInt(TOTAL_PAGES_KEY)
-//        question = arguments?.getString(QUESTION_KEY)
-//        answers = arguments?.getSerializable(ANSWERS_ARRAY_KEY) as Array<String>
-//        indexOfSelectedAnswer = arguments?.getString(INDEX_OF_SELECTED_ANSWER_KEY)
 
         binding.toolbar.title = "Question - ${currenPage?.plus(1)}"
         binding.question.text = question
@@ -134,7 +117,6 @@ class MyQizFragment : Fragment() {
                 binding.radioGroup.addView(radioButton, answers!!.indexOf(answer))
 
             }
-
 
         }
 
